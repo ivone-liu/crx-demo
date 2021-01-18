@@ -1,0 +1,38 @@
+{
+    "name": "crx demo",
+    "version": "0.1.0",
+    "description": "crx demo",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "crx demo",
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2,
+    "permissions":
+	[
+		"contextMenus",
+		"tabs",
+		"webRequest",
+		"webRequestBlocking",
+        "storage",
+        "background",
+        "activeTab"
+    ],
+    "background":
+	{
+        "scripts": ["js/background.js"]
+    },
+    "content_scripts": 
+	[
+		{
+			"matches": ["<all_urls>"],
+			"js": ["js/content-script.js"],
+			"run_at": "document_start"
+		}
+	]
+ }
